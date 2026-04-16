@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'hive_constants.dart';
 
 class SummaryCard extends StatelessWidget {
   final String title;
@@ -50,7 +51,7 @@ class SummaryCard extends StatelessWidget {
                 Text(title, style: theme.textTheme.bodyMedium),
                 const SizedBox(height: 2),
                 Text(
-                  '\$${amount.toStringAsFixed(2)}',
+                  '${AppConstants.currencySymbol}${amount.toStringAsFixed(2)}',
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 18,

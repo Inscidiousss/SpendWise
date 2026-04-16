@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'expense_model.dart';
 import 'app_theme.dart';
+import 'hive_constants.dart';
 
 class ExpenseCard extends StatelessWidget {
   final ExpenseModel expense;
@@ -57,7 +58,7 @@ class ExpenseCard extends StatelessWidget {
             ),
           ),
           Text(
-            '${expense.isExpense ? '-' : '+'}\$${expense.amount.toStringAsFixed(2)}',
+            '${expense.isExpense ? '-' : '+'}${AppConstants.currencySymbol}${expense.amount.toStringAsFixed(2)}',
             style: TextStyle(
               color: color,
               fontWeight: FontWeight.w700,

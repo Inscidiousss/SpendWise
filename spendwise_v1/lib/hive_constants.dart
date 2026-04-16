@@ -7,7 +7,7 @@ class HiveConstants {
 
 class AppConstants {
   static const String appName = 'ExpenseIQ';
-  static const String currencySymbol = '\$';
+  static const String currencySymbol = 'NRs ';
 
   static const List<String> defaultCategories = [
     'Food & Dining',

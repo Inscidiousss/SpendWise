@@ -1,3 +1,4 @@
+import 'package:expense_tracker/hive_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:iconsax/iconsax.dart';
@@ -109,11 +110,11 @@ class BudgetScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _overviewStat('Total Budget', '\$${totalLimit.toStringAsFixed(0)}'),
-              _overviewStat('Spent', '\$${totalSpent.toStringAsFixed(0)}'),
+              _overviewStat('Total Budget', '${AppConstants.currencySymbol}${totalLimit.toStringAsFixed(0)}'),
+              _overviewStat('Spent', '${AppConstants.currencySymbol}${totalSpent.toStringAsFixed(0)}'),
               _overviewStat(
                 'Remaining',
-                '\$${remaining.toStringAsFixed(0)}',
+                '${AppConstants.currencySymbol}${remaining.toStringAsFixed(0)}',
                 color: remaining < 0 ? const Color(0xFFFF6584) : const Color(0xFF03DAC6),
               ),
             ],
@@ -210,7 +211,7 @@ class BudgetScreen extends StatelessWidget {
                             ?.copyWith(fontWeight: FontWeight.w600),
                       ),
                       Text(
-                        '\$${spent.toStringAsFixed(2)} / \$${budget.limit.toStringAsFixed(2)}',
+                        '${AppConstants.currencySymbol}${spent.toStringAsFixed(2)} / ${AppConstants.currencySymbol}${budget.limit.toStringAsFixed(2)}',
                         style: theme.textTheme.bodyMedium,
                       ),
                     ],
@@ -290,7 +291,7 @@ class BudgetScreen extends StatelessWidget {
           Row(
             children: [
               Text(
-                '\$${amount.toStringAsFixed(2)}',
+                '${AppConstants.currencySymbol}${amount.toStringAsFixed(2)}',
                 style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               const SizedBox(width: 8),
@@ -381,7 +382,7 @@ class BudgetScreen extends StatelessWidget {
                 keyboardType: const TextInputType.numberWithOptions(decimal: true),
                 decoration: const InputDecoration(
                   labelText: 'Budget Limit',
-                  prefixText: '\$ ',
+                  prefixText: AppConstants.currencySymbol,
                 ),
               ),
               const SizedBox(height: 20),

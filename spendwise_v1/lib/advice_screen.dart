@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:iconsax/iconsax.dart';
 import 'expense_provider.dart';
 import '/app_theme.dart';
+import 'hive_constants.dart';
 
 class AdviceScreen extends StatelessWidget {
   const AdviceScreen({super.key});
@@ -269,10 +270,10 @@ class AdviceScreen extends StatelessWidget {
           _patternRow(context, 'Top Spending', topCat, AppTheme.errorColor),
           const Divider(height: 20),
           _patternRow(context, 'Top Amount',
-              '\$${topAmt.toStringAsFixed(2)}', AppTheme.warningColor),
+              '${AppConstants.currencySymbol}${topAmt.toStringAsFixed(2)}', AppTheme.warningColor),
           const Divider(height: 20),
           _patternRow(context, 'Avg Daily',
-              '\$${(provider.totalExpenses / 30).toStringAsFixed(2)}', AppTheme.primaryColor),
+              '${AppConstants.currencySymbol}${(provider.totalExpenses / 30).toStringAsFixed(2)}', AppTheme.primaryColor),
         ],
       ),
     );
@@ -350,7 +351,7 @@ class AdviceScreen extends StatelessWidget {
                           .bodyLarge
                           ?.copyWith(fontWeight: FontWeight.w600)),
                   Text(
-                    '\$${amount.toStringAsFixed(2)}',
+                    '${AppConstants.currencySymbol}${amount.toStringAsFixed(2)}',
                     style: TextStyle(fontWeight: FontWeight.w700, color: color),
                   ),
                 ],
@@ -377,7 +378,7 @@ class AdviceScreen extends StatelessWidget {
       tips.add({
         'icon': '✂️',
         'title': 'Cut Subscriptions',
-        'body': 'Review your monthly subscriptions. Cancelling just 2-3 unused ones can save \$30-50/month.',
+        'body': 'Review your monthly subscriptions. Cancelling just 2-3 unused ones can save ${AppConstants.currencySymbol}300-500/month.',
       });
     }
 
@@ -385,7 +386,7 @@ class AdviceScreen extends StatelessWidget {
       tips.add({
         'icon': '🏦',
         'title': 'Emergency Fund',
-        'body': 'Build 3-6 months of expenses as an emergency fund before investing. Target: \$${(expenses * 3).toStringAsFixed(0)}.',
+        'body': 'Build 3-6 months of expenses as an emergency fund before investing. Target: ${AppConstants.currencySymbol}${(expenses * 3).toStringAsFixed(0)}.',
       });
     }
 
@@ -411,7 +412,7 @@ class AdviceScreen extends StatelessWidget {
       tips.add({
         'icon': '📈',
         'title': 'Index Funds',
-        'body': 'Low-cost index funds (S&P 500) have historically returned ~10% annually. Start with \$${(balance * 0.5).toStringAsFixed(0)}.',
+        'body': 'Low-cost index funds (S&P 500) have historically returned ~10% annually. Start with ${AppConstants.currencySymbol}${(balance * 0.5).toStringAsFixed(0)}.',
       });
     }
 

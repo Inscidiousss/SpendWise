@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:iconsax/iconsax.dart';
 import 'expense_provider.dart';
 import 'app_theme.dart';
+import 'hive_constants.dart';
 
 class ExportDialog extends StatefulWidget {
   final ExpenseProvider provider;
@@ -96,7 +97,7 @@ class _ExportDialogState extends State<ExportDialog> {
                       pw.Text('Total Income',
                           style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey700)),
                       pw.Text(
-                        '\$${widget.provider.totalIncome.toStringAsFixed(2)}',
+                        '${AppConstants.currencySymbol}${widget.provider.totalIncome.toStringAsFixed(2)}',
                         style: pw.TextStyle(
                           fontSize: 16,
                           fontWeight: pw.FontWeight.bold,
@@ -111,7 +112,7 @@ class _ExportDialogState extends State<ExportDialog> {
                       pw.Text('Total Expenses',
                           style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey700)),
                       pw.Text(
-                        '\$${widget.provider.totalExpenses.toStringAsFixed(2)}',
+                        '${AppConstants.currencySymbol}${widget.provider.totalExpenses.toStringAsFixed(2)}',
                         style: pw.TextStyle(
                           fontSize: 16,
                           fontWeight: pw.FontWeight.bold,
@@ -126,7 +127,7 @@ class _ExportDialogState extends State<ExportDialog> {
                       pw.Text('Balance',
                           style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey700)),
                       pw.Text(
-                        '\$${widget.provider.balance.toStringAsFixed(2)}',
+                        '${AppConstants.currencySymbol}${widget.provider.balance.toStringAsFixed(2)}',
                         style: pw.TextStyle(
                           fontSize: 16,
                           fontWeight: pw.FontWeight.bold,
@@ -148,7 +149,7 @@ class _ExportDialogState extends State<ExportDialog> {
                     e.title,
                     e.category,
                     e.isExpense ? 'Expense' : 'Income',
-                    '\$${e.amount.toStringAsFixed(2)}',
+                    '${AppConstants.currencySymbol}${e.amount.toStringAsFixed(2)}',
                   ]).toList(),
               headerStyle: pw.TextStyle(
                 fontWeight: pw.FontWeight.bold,

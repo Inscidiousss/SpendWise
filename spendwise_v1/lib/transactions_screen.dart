@@ -8,6 +8,7 @@ import 'app_theme.dart';
 import 'expense_model.dart';
 import 'add_expense_screen.dart';
 import 'export_dialog.dart';
+import 'hive_constants.dart';
 
 class TransactionsScreen extends StatefulWidget {
   const TransactionsScreen({super.key});
@@ -158,7 +159,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                       style: theme.textTheme.bodyMedium,
                     ),
                     Text(
-                      'Total: \$${filtered.where((e) => e.isExpense).fold(0.0, (s, e) => s + e.amount).toStringAsFixed(2)}',
+                      'Total: ${AppConstants.currencySymbol}${filtered.where((e) => e.isExpense).fold(0.0, (s, e) => s + e.amount).toStringAsFixed(2)}',
                       style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         color: AppTheme.errorColor,
@@ -291,7 +292,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                '${expense.isExpense ? '-' : '+'}\$${expense.amount.toStringAsFixed(2)}',
+                '${expense.isExpense ? '-' : '+'}${AppConstants.currencySymbol}${expense.amount.toStringAsFixed(2)}',
                 style: TextStyle(
                   color: color,
                   fontWeight: FontWeight.w700,

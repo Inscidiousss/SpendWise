@@ -5,6 +5,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:iconsax/iconsax.dart';
 import 'expense_provider.dart';
 import 'app_theme.dart';
+import 'hive_constants.dart';
 
 class AnalyticsScreen extends StatelessWidget {
   const AnalyticsScreen({super.key});
@@ -137,7 +138,7 @@ class AnalyticsScreen extends StatelessWidget {
                                     ?.copyWith(fontWeight: FontWeight.w600),
                               ),
                               Text(
-                                '\$${entry.value.toStringAsFixed(2)}',
+                                '${AppConstants.currencySymbol}${entry.value.toStringAsFixed(2)}',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: _chartColors[i % _chartColors.length],

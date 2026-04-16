@@ -149,7 +149,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen>
                     color: _isExpense ? AppTheme.errorColor : AppTheme.successColor,
                   ),
                   decoration: InputDecoration(
-                    prefixText: '\$ ',
+                    prefixText: AppConstants.currencySymbol,
                     prefixStyle: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,

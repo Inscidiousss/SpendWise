@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
 import 'expense_model.dart';
 import 'expense_repository.dart';
+import 'hive_constants.dart';
 
 class ExpenseProvider extends ChangeNotifier {
   final ExpenseRepository _repo = ExpenseRepository();
@@ -111,7 +112,7 @@ class ExpenseProvider extends ChangeNotifier {
     if (rate >= 30) {
       return "🌟 Excellent! You're saving ${rate.toStringAsFixed(1)}% of your income. "
           "Consider investing your surplus in index funds or a high-yield savings account. "
-          "You could put \$${(savings * 0.5).toStringAsFixed(2)} into a diversified portfolio.";
+          "You could put ${AppConstants.currencySymbol}${(savings * 0.5).toStringAsFixed(2)} into a diversified portfolio.";
     } else if (rate >= 20) {
       return "✅ Great job! You're saving ${rate.toStringAsFixed(1)}%. "
           "Try to reach 30% by cutting non-essential spending. "

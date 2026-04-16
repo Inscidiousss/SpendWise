@@ -10,6 +10,7 @@ import 'add_expense_screen.dart';
 import 'expense_card.dart';
 import 'summary_card.dart';
 import 'month_selector.dart';
+import 'hive_constants.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -93,7 +94,7 @@ class DashboardScreen extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              '\$${provider.balance.toStringAsFixed(2)}',
+                              '${AppConstants.currencySymbol}${provider.balance.toStringAsFixed(2)}',
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 36,
